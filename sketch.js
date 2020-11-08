@@ -19,11 +19,16 @@ function setup() {
   }
   setAttributes('antialias', true);
   
+  createEasyCam({
+    distance: 400
+  });
+}
+
 } 
 
 
 function draw(){
-  background(222);
+  background(22);
   noStroke();
   
   ambientLight(50);
@@ -31,7 +36,7 @@ function draw(){
   pointLight(200,200,200,0,50,150);
   
 //specularMaterial(280,10);
-  orbitControl();
+//  orbitControl();
   const dim = min(width, height)
 
   for (let i = 0; i < numTextures; i++) {
