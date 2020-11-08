@@ -12,8 +12,12 @@ function preload() {
 }
 
 function setup() {
+  pixelDensity(pixelDensity());
   createCanvas(windowWidth, windowHeight, WEBGL);
- 
+  const dim = min(width, height);
+	  for (let i = 0; i < numTextures; i++) {
+   		 myTextures.push(createGraphics(dim, dim, WEBGL));
+ 		 }
   
  // Fix for easyCam
 	
@@ -31,24 +35,21 @@ function setup() {
 	createEasyCam({distance: 400})
 	
 	
- const dim = min(width, height);
-	  for (let i = 0; i < numTextures; i++) {
-   		 myTextures.push(createGraphics(dim, dim, WEBGL));
- 		 }
+
 	
  setAttributes('antialias', true);
 	
 }
 
 function draw(){
-  background(22);
+  background(222);
   noStroke();
   
   ambientLight(50);
   directionalLight(200,200,200, -1,-1,-1);
   pointLight(200,200,200,0,50,150);
   
-//specularMaterial(280,10);
+specularMaterial(180,0,145,10);
 //  orbitControl();
   const dim = min(width, height)
 
