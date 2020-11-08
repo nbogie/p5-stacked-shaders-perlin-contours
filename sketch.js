@@ -1,4 +1,4 @@
-//"use strict";
+"use strict";
 let myShaders = [];
 let myTextures = [];
 let numTextures = 8;
@@ -32,7 +32,7 @@ function draw(){
   
 //specularMaterial(280,10);
   orbitControl();
-//  const dim = min(width, height)
+  const dim = min(width, height)
 
   for (let i = 0; i < numTextures; i++) {
     const time = millis() / 1000.0;
