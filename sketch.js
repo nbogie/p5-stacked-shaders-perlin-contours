@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 let myShaders = [];
 let myTextures = [];
 let numTextures = 8;
@@ -43,11 +43,11 @@ function draw(){
   background(222);
   noStroke();
   
-  ambientLight(70);
+//  ambientLight(70);
   directionalLight(200,200,200, -1,-1,-1);
   pointLight(200,200,200,0,50,150);
   
-//specularMaterial(105);
+specularMaterial(105);
 
 const dim = min(width, height)
 
