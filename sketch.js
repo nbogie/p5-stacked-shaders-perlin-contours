@@ -28,8 +28,8 @@ function setup() {
 						  this.camRUP[0], this.camRUP[1], this.camRUP[2]))
 	};
   
-	cam = createEasyCam()
-	cam.zoom(5)
+	createEasyCam({distance: 400})
+	
 	
  const dim = min(width, height);
 	  for (let i = 0; i < numTextures; i++) {
