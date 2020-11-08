@@ -13,24 +13,32 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
-  const dim = min(width, height);
-  for (let i = 0; i < numTextures; i++) {
-    myTextures.push(createGraphics(dim, dim, WEBGL));
-  }
-  setAttributes('antialias', true);
+ 
   
  // Fix for easyCam
 	
   Dw.EasyCam.prototype.apply = function(n) {
 		var o = this.cam;
 		n = n || o.renderer,
-			n && (this.camEYE = this.getPosition(this.camEYE), this.camLAT = this.getCenter(this.camLAT), this.camRUP = this.getUpVector(this.camRUP), n._curCamera.camera(this.camEYE[0], this.camEYE[1], this.camEYE[2], this.camLAT[0], this.camLAT[1], this.camLAT[2], this.camRUP[0], this.camRUP[1], this.camRUP[2]))
+			n && (this.camEYE = this.getPosition(this.camEYE), 
+			      this.camLAT = this.getCenter(this.camLAT), 
+			      this.camRUP = this.getUpVector(this.camRUP), 
+			      n._curCamera.camera(this.camEYE[0], this.camEYE[1], this.camEYE[2], 
+						  this.camLAT[0], this.camLAT[1], this.camLAT[2],
+						  this.camRUP[0], this.camRUP[1], this.camRUP[2]))
 	};
   
 	cam = createEasyCam()
 	cam.zoom(5)
+	
+ const dim = min(width, height);
+	  for (let i = 0; i < numTextures; i++) {
+   		 myTextures.push(createGraphics(dim, dim, WEBGL));
+ 		 }
+	
+ setAttributes('antialias', true);
+	
 }
-
 
 function draw(){
   background(22);
@@ -72,4 +80,11 @@ function draw(){
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+}
+
+document.oncontextmenu = function() {
+  return false;
+}
+document.onmousedown = function() {
+  return false;
 }
