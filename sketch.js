@@ -23,16 +23,16 @@ function setup() {
 
 
 function draw(){
-  background(8);
+  background(222);
   noStroke();
   
   ambientLight(50);
   directionalLight(200,200,200, -1,-1,-1);
   pointLight(200,200,200,0,50,150);
   
-  ambientMaterial(255);
+specularMaterial(250,0,0,80);
   orbitControl();
-  const dim = min(width, height)
+//  const dim = min(width, height)
 
   for (let i = 0; i < numTextures; i++) {
     const time = millis() / 1000.0;
