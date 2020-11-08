@@ -47,7 +47,7 @@ function draw(){
   directionalLight(200,200,200, -1,-1,-1);
   pointLight(200,200,200,0,50,150);
   
-ambientMaterial();
+specularMaterial(105);
 
 const dim = min(width, height)
 
