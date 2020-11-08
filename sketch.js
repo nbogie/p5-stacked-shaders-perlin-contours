@@ -30,7 +30,7 @@ function draw(){
   directionalLight(200,200,200, -1,-1,-1);
   pointLight(200,200,200,0,50,150);
   
-specularMaterial(250,0,0,80);
+//specularMaterial(280,10);
   orbitControl();
 //  const dim = min(width, height)
 
