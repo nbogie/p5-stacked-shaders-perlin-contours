@@ -16,7 +16,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   const dim = min(width, height);
 	  for (let i = 0; i < numTextures; i++) {
-   		 myTextures.push(createGraphics(dim, dim, P3D));
+   		 myTextures.push(createGraphics(dim, dim, WEBGL));
  		 }
   
  // Fix for easyCam
@@ -32,11 +32,9 @@ function setup() {
 						  this.camRUP[0], this.camRUP[1], this.camRUP[2]))
 	};
   
-	createEasyCam({distance: 400})
+	createEasyCam({distance: 500});
 	
-	
-
-	
+		
  setAttributes('antialias', true);
 	
 }
@@ -45,7 +43,7 @@ function draw(){
   background(222);
   noStroke();
   
-  ambientLight(50);
+  ambientLight(70);
   directionalLight(200,200,200, -1,-1,-1);
   pointLight(200,200,200,0,50,150);
   
