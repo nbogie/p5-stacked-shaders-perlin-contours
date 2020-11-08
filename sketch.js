@@ -1,4 +1,4 @@
-"use strict";
+//"use strict";
 let myShaders = [];
 let myTextures = [];
 let numTextures = 8;
@@ -17,12 +17,21 @@ function setup() {
   for (let i = 0; i < numTextures; i++) {
     myTextures.push(createGraphics(dim, dim, WEBGL));
   }
-}
+  setAttributes('antialias', true);
+  
+  createEasyCam({distance:400});
+} 
 
-function draw() {
-  background("#8fcfd1")
 
-  orbitControl(5, 5);
+function draw(){
+  background(8);
+  noStroke();
+  
+  ambientLight(50);
+  directionalLight(200,200,200, -1,-1,-1);
+  pointLight(200,200,200,0,50,150);
+  
+  ambientMaterial(255);
   const dim = min(width, height)
 
   for (let i = 0; i < numTextures; i++) {
@@ -34,8 +43,6 @@ function draw() {
     myShaders[i].setUniform('u_time', time);
     myShaders[i].setUniform('u_layer', i);
   }
-
-  noStroke();
 
   const yStep = 40;
   translate(0, -yStep * numTextures * 0.5, 0);
