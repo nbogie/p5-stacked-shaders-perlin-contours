@@ -19,7 +19,6 @@ function setup() {
   }
   setAttributes('antialias', true);
   
-  createEasyCam({distance:400});
 } 
 
 
@@ -32,6 +31,7 @@ function draw(){
   pointLight(200,200,200,0,50,150);
   
   ambientMaterial(255);
+  orbitControl();
   const dim = min(width, height)
 
   for (let i = 0; i < numTextures; i++) {
