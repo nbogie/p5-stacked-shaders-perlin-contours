@@ -16,7 +16,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   const dim = min(width, height);
 	  for (let i = 0; i < numTextures; i++) {
-   		 myTextures.push(createGraphics(dim, dim, WEBGL));
+   		 myTextures.push(createGraphics(dim, dim, P3D));
  		 }
   
  // Fix for easyCam
@@ -49,9 +49,9 @@ function draw(){
   directionalLight(200,200,200, -1,-1,-1);
   pointLight(200,200,200,0,50,150);
   
-specularMaterial(180,0,145,10);
-//  orbitControl();
-  const dim = min(width, height)
+ambientMaterial();
+
+const dim = min(width, height)
 
   for (let i = 0; i < numTextures; i++) {
     const time = millis() / 1000.0;
@@ -65,7 +65,7 @@ specularMaterial(180,0,145,10);
 
   const yStep = 40;
   translate(0, -yStep * numTextures * 0.5, 0);
-
+noStroke();
   const sz = 150;
   for (let i = 0; i < numTextures; i++) {
     texture(myTextures[i]);
