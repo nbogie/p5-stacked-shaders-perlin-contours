@@ -1,4 +1,71 @@
+html,
 body {
+  padding: 0;
   margin: 0;
-  padding:0;
+}
+
+html,
+body {
+  overflow: hidden;
+  user-select: none;
+  color: white;
+  font-family: "Yantramanav", sans-serif;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  outline: none;
+  position: absolute;
+  z-index: -1;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  color: white;
+  font-size: 100px;
+}
+h2 {
+  font-family: "Josefin Slab", serif;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  align-content: space-around;
+}
+
+.sidetext {
+  height: 100vh;
+  color: white;
+  transform: rotate(90deg);
+  position: fixed;
+  border-top: 1px solid white;
+  left: -300px;
+  top: 100px;
+}
+.sidetext span {
+  display: inline-block;
+}
+
+.my-article {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 100px;
+  width: 100%;
+
+  height: 100vh;
+  /* clip-path: circle(500px at center); */
 }
