@@ -52,6 +52,7 @@ float findEdgeOfNoise(in float n, in float a, in float b, in float borderWidth) 
 	return f1 - f2;
 }
 
+varying vec2 vTexCoord;
 uniform vec2 u_resolution; // This is passed in as a uniform from the sketch.js file
 uniform float u_time; // This is passed in as a uniform from the sketch.js file
 uniform int u_layer; // makes each shader (layer) distinct
@@ -62,7 +63,8 @@ float Line(float v, float ctr, float end) {
 void main() {
 	// position of the pixel divided by resolution, to get normalized positions on the canvas
 	//vec2 uv = gl_FragCoord.xy / u_resolution.xy / 2.;
-  vec2 uv = (gl_FragCoord.xy - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+	vec2 uv = vTexCoord;
+	// vec2 uv = (gl_FragCoord.xy - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
 
 	vec4 col = vec4(0.0, 0.0, 0., 0.);
 
@@ -75,7 +77,7 @@ void main() {
 	//there is no plate offset in x or y terms, only in 3ds dimension (time)
 	//vec2 plateOffset = vec2(0., 3.45-layerSpacing * float(u_layer));
 
-	vec2 apparentUV = 0.3 * uv.xy; // + plateOffset;
+	vec2 apparentUV = 0.45 * uv.xy; // + plateOffset;
 	//TODO: layers should all be running with the same time input to noise
 	float apparentTime = time * 1. + 0.3 * float(u_layer);
 
@@ -97,5 +99,5 @@ void main() {
 	col = mix(col, c1, nBorder1);
 	col = mix(col, c1, nBorder2);
 
-	gl_FragColor = col; // R,G,B,A
+	gl_FragColor = col;
 }
